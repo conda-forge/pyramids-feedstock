@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 422b69ab365f75a495de86ba8708739098ca37617c3182c96024013e820480c0
+  sha256: 364921171e12011893f5f5a7d9ed110349ce37e047e5a7fef79889a2f28d914a
 
 build:
   number: 0
@@ -33,8 +33,7 @@ requirements:
     - netCDF4 >=1.5.5,<1.5.9
     - geopy >=2.2.0
     - geoplot >=0.5.1
-    - pytest-cov >=2.12.1
-    - pytest >=6.2.5
+
 test:
   imports:
     - pyramids
