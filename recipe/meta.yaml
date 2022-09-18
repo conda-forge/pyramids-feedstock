@@ -34,6 +34,7 @@ requirements:
     - geopy >=2.2.0
     - pytest-cov >=2.12.1
     - pytest >=6.2.5
+    
 test:
   imports:
     - pyramids
