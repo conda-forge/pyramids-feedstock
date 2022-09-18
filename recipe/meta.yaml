@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 422b69ab365f75a495de86ba8708739098ca37617c3182c96024013e820480c0
+  sha256: 9e2a009ed3e98384f70abf632fb9eec7bf1a2035d5bd5020cd435edd2470749e
 
 build:
   number: 0
@@ -17,7 +17,7 @@ build:
 requirements:
   host:
     - python >=3.7
-    - pip
+    - pip >=21.3.0
   run:
     - python >=3.7
     - numpy >=1.21.2,<1.22.4
@@ -32,7 +32,6 @@ requirements:
     - rasterio >=1.2.10
     - netCDF4 >=1.5.5,<1.5.9
     - geopy >=2.2.0
-    - geoplot >=0.5.1
     - pytest-cov >=2.12.1
     - pytest >=6.2.5
 test:
