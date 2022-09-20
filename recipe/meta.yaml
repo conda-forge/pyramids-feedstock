@@ -26,7 +26,7 @@ requirements:
     - fiona >=1.8.20
     - pyproj >=3.2.1,<=3.4.0
     - pandas >=1.4.4
-    - geopandas >=0.11.1
+    - geopandas >=0.10.2
     - Rtree >=1.0.0
     - matplotlib >=3.5.3
     - shapely >=1.8.4
