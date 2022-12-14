@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.2.6" %}
+{% set version = "0.2.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 6b7ed0ceb97f0ca3a9fcb5ea6c7553fd16cd815162250cc4c1e8c795e3ee78f6
+  sha256: 0e5093232cfae896c80e42241353d66add25c7ffe064fddf6b8c56a33a14bcf6
 
 build:
   number: 0
@@ -26,17 +26,17 @@ requirements:
     - pandas >=1.4.4
     - affine >=2.3.1
     - gdal >=3.4.3
-    - Fiona >=1.8.21
-    - geopandas >=0.11.1
+    - geopandas >=0.12.2
     - geopy >=2.2.0
-    - matplotlib >=3.5.3
     - netCDF4 >=1.6.1
     - pyproj >=3.4.0
     - rasterio >=1.3.0
     - Rtree >=1.0.0
     - Shapely >=1.8.4,<2
-    - pytest >=7.1.3
-    - pytest-cov >=3.0.0
+    #- pytest >=7.1.3
+    #- pytest-cov >=3.0.0
+    #- matplotlib >=3.5.3
+    #- Fiona >=1.8.21
     
 test:
   imports:
