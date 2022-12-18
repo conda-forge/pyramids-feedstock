@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 621de77eac66d131bc1e7b71531266c427f367da15fc3f8395d7bd0128d8180f
+  sha256: e395db53bdf4815753ea238c6f9918292d2b1c1985175740babf8ea584614e5b
 
 build:
   number: 0
