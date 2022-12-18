@@ -25,7 +25,7 @@ requirements:
     - loguru >=0.6.0
     - pandas >=1.4.4
     - affine >=2.3.1
-    - gdal >=3.4.3
+    - gdal >=3.6.0
     - geopandas >=0.12.2
     - geopy >=2.2.0
     - netCDF4 >=1.6.1
