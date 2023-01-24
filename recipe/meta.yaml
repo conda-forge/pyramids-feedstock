@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: a032764fd1ce5e47a582df9b7b523b2bace7ceb502a22420cb451a638f72ee91
+  sha256: 1fe194f51a70404982fde0084a37ad5891189efa661729d6552b32cf32907e2f
 
 build:
   number: 0
@@ -32,9 +32,12 @@ requirements:
     - netCDF4 >=1.6.1
     - geopy >=2.2.0
     - pyproj >=3.4.0
+    - pyarrow >=10.0.1
+    - h3-py >=3.7.4
     - PyYAML >=6.0
     - loguru >=0.6.0
     - requests >=2.28.1
+
     
 test:
   imports:
