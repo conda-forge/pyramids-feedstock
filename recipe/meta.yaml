@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.3.1" %}
+{% set version = "0.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 1fe194f51a70404982fde0084a37ad5891189efa661729d6552b32cf32907e2f
+  sha256: c408ac082b0b78ff64e97700e3a1266bcda16d1da6636557d0058a35f849d173
 
 build:
   number: 0
