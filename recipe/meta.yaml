@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.3.2" %}
+{% set version = "0.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: c408ac082b0b78ff64e97700e3a1266bcda16d1da6636557d0058a35f849d173
+  sha256: 441792e3aaed3d412e23a26e184069914e6ee2d6c12b84228d96e3d10ffb9a85
 
 build:
   number: 0
@@ -20,7 +20,7 @@ requirements:
     - pip >=22.3.1
   run:
     - python >=3.9,<3.11
-    - numpy ==1.24.1
+    - numpy >=1.24.1
     - pip >=22.3.1
     - gdal >=3.5.3
     - affine >=2.3.1
