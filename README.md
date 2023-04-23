@@ -1,11 +1,11 @@
-About pyramids
-==============
+About pyramids-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyramids-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/MAfarrag/pyramids
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyramids-feedstock/blob/main/LICENSE.txt)
 
 Summary: GIS utility package
 
