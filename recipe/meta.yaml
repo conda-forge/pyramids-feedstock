@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 0e34ff93b716cb7f2d2b9dbeb3a427e59c02fd9ef059e8aeae2bb79b27eeafc9
+  sha256: 694cc001a69313e0bf3ec2ad6ed50ea4ccf87a61a3468d3ea18679e93546cfc7
 
 build:
   number: 0
@@ -21,7 +21,7 @@ requirements:
   run:
     - python >=3.9,<3.11
     - numpy >=1.24.1
-    - hpc >=0.1.0
+    - hpc >=0.1.1
     - pip >=22.3.1
     - gdal >=3.6.2
     - pandas >=2.0.0
@@ -30,7 +30,6 @@ requirements:
     - pyproj >=3.4.0
     - PyYAML >=6.0
     - loguru >=0.6.0
-
     
 test:
   imports:
