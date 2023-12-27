@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 6a89f6c03628680f5c94899ccd4b8d475e243bf93ca7956f83a18b39a8fe6709
+  sha256: f850cc1a05ed93aa3b87e9eca80d84b1a3ec725d0f892323040d2357bf443c6d
 
 build:
   number: 0
@@ -30,14 +30,14 @@ requirements:
     - pyproj >=3.6.1
     - PyYAML >=6.0.1
     - loguru >=0.7.2
-    
+
 test:
   imports:
     - pyramids
 
 about:
   home: https://github.com/MAfarrag/pyramids
-  license:  GPL-3.0-only
+  license: GPL-3.0-only
   license_family: GPL
   license_file: LICENSE.md
   summary: GIS utility package
