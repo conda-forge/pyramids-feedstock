@@ -1,5 +1,5 @@
 {% set name = "pyramids" %}
-{% set version = "0.5.6" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 3837d4868f3da7707b8d9021a0caf5af2d176bcfc4336f0486938eeaba0fd3e6
+  sha256: 0a33f45178e31a0ae9a44bc09b4be35a71b6e623d5ebaa0b80ab6d5963775539
 
 build:
   number: 0
@@ -23,7 +23,7 @@ requirements:
     - numpy >=1.25.2
     - hpc >=0.1.3
     - pip >=23.3.1
-    - gdal >=3.7.0
+    - gdal >=3.8.4
     - pandas >=2.1.0
     - geopandas >=0.14.1
     - Shapely >=2.0.2
