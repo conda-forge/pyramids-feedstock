@@ -11,8 +11,7 @@ source:
   sha256: 6c4cb7f5326e72dae26251c9c73f9c9b7df49efa66b587a9d454af908c5c1488
 
 build:
-  number: 1
-  noarch: python
+  skip: true
 
 outputs:
   # 1. The core package – identical to what pip installs without extras
@@ -21,6 +20,7 @@ outputs:
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
       number: 0
+
     requirements:
       host:
         - python {{ python_min }}
@@ -55,10 +55,6 @@ outputs:
       doc_url: https://pyramids-gis.readthedocs.io/
       doc_source_url: https://github.com/MAfarrag/pyramids/main/README.md
 
-    extra:
-      recipe-maintainers:
-        - MAfarrag
-
   # 2. A tiny meta-package that represents the [viz] extra
   - name: {{ pyramids }}-viz
     build:
@@ -73,3 +69,7 @@ outputs:
     extra:
       skip-lints:
         - build_script_missing
+
+extra:
+  recipe-maintainers:
+    - MAfarrag
