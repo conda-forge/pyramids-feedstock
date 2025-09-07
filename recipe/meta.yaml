@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.7.3" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: 6c4cb7f5326e72dae26251c9c73f9c9b7df49efa66b587a9d454af908c5c1488
+  sha256: 0e28f0947aa6b9516776dcbaebfd7b5bf1f2319bc122234bff1884e1dbd05ea2
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
