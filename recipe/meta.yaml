@@ -50,6 +50,8 @@ outputs:
   - name: {{ name }}
 
   - name: {{ name }}-viz
+    build:
+      noarch: python
     requirements:
       run:
         - {{ pin_subpackage(name, exact=True) }}
@@ -59,6 +61,8 @@ outputs:
         - pyramids
 
   - name: {{ name }}-xarray
+    build:
+      noarch: python
     requirements:
       run:
         - {{ pin_subpackage(name, exact=True) }}
