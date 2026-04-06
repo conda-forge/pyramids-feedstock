@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.10.0" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/MAfarrag/pyramids/archive/{{ version }}.tar.gz
-  sha256: a4e951e89b8c7a3b267901e5ec36c5dbfe292c864a1cceeed51d8d4208efb6f4
+  sha256: a1912019e6c2bdfe8971984c491f7c5bacf754a0d42232be2e081fc1a5ad6a36
 
 build:
   number: 0
@@ -35,13 +35,40 @@ requirements:
 
   run_constrained:
     - cleopatra >=0.6.0
-
+    - xarray >=2023.1.0
+    - netCDF4 >=1.6.0
+    - h5netcdf >=1.0.0
+    - cftime >=1.6.0
 
 test:
   requires:
     - python {{ python_min }}
   imports:
     - pyramids
+
+outputs:
+  - name: {{ name }}
+
+  - name: {{ name }}-viz
+    requirements:
+      run:
+        - {{ pin_subpackage(name, exact=True) }}
+        - cleopatra >=0.6.0
+    test:
+      imports:
+        - pyramids
+
+  - name: {{ name }}-xarray
+    requirements:
+      run:
+        - {{ pin_subpackage(name, exact=True) }}
+        - xarray >=2023.1.0
+        - netcdf4 >=1.6.0
+        - h5netcdf >=1.0.0
+        - cftime >=1.6.0
+    test:
+      imports:
+        - pyramids
 
 about:
   home: https://github.com/Serapieum-of-alex/pyramids
