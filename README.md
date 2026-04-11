@@ -3,15 +3,15 @@ About pyramids-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyramids-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/Serapieum-of-alex/pyramids
+Home: https://github.com/serapeum-org/pyramids
 
 Package license: GPL-3.0-only
 
 Summary: GIS utility package
 
-Development: https://github.com/Serapieum-of-alex/pyramids
+Development: https://github.com/serapeum-org/pyramids
 
-Documentation: https://serapieum-of-alex.github.io/pyramids
+Documentation: https://serapeum-org.github.io/pyramids
 
 GIS utility package.
 
