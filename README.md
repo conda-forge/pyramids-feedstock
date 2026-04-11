@@ -34,6 +34,8 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids-green.svg)](https://anaconda.org/conda-forge/pyramids) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids.svg)](https://anaconda.org/conda-forge/pyramids) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids.svg)](https://anaconda.org/conda-forge/pyramids) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids.svg)](https://anaconda.org/conda-forge/pyramids) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--viz-green.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--xarray-green.svg)](https://anaconda.org/conda-forge/pyramids-xarray) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-xarray.svg)](https://anaconda.org/conda-forge/pyramids-xarray) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-xarray.svg)](https://anaconda.org/conda-forge/pyramids-xarray) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-xarray.svg)](https://anaconda.org/conda-forge/pyramids-xarray) |
 
 Installing pyramids
 ===================
@@ -45,16 +47,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pyramids` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pyramids, pyramids-viz, pyramids-xarray` can be installed with `conda`:
 
 ```
-conda install pyramids
+conda install pyramids pyramids-viz pyramids-xarray
 ```
 
 or with `mamba`:
 
 ```
-mamba install pyramids
+mamba install pyramids pyramids-viz pyramids-xarray
 ```
 
 It is possible to list all of the versions of `pyramids` available on your platform with `conda`:
