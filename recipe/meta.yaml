@@ -42,9 +42,6 @@ requirements:
     - Pillow >=9.0.0
     # xarray
     - xarray >=2023.1.0
-    - netCDF4 >=1.6.0
-    - h5netcdf >=1.0.0
-    - cftime >=1.6.0
     # lazy
     - dask >=2024.1.0
     - distributed >=2024.1.0
@@ -88,9 +85,6 @@ outputs:
       run:
         - {{ pin_subpackage(name, exact=True) }}
         - xarray >=2023.1.0
-        - netcdf4 >=1.6.0
-        - h5netcdf >=1.0.0
-        - cftime >=1.6.0
     test:
       imports:
         - pyramids
