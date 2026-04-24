@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.14.0" %}
+{% set version = "0.15.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: 1611735535c6baa0d4d862c277437f34109e5f4ce5181f9d32bdeb433e99340e
+  sha256: 56c107e82d11c208a87f610bd8ef97014d6820d621e321b70a715197f94aaa9a
 
 build:
   number: 0
@@ -29,16 +29,34 @@ requirements:
     - pyproj >=3.7.0
     - PyYAML >=6.0.0
     - Shapely >=2.0.0
+    - scipy >=1.10.0
     - gdal >=3.10.0
     - libgdal-netcdf >=3.10.0
     - libgdal-hdf4 >=3.10.0
 
   run_constrained:
-    - cleopatra >=0.6.0
+    # viz
+    - cleopatra >=0.7.1
+    - mercantile >=1.2.0
+    - xyzservices >=2024.4.0
+    - Pillow >=9.0.0
+    # xarray
     - xarray >=2023.1.0
     - netCDF4 >=1.6.0
     - h5netcdf >=1.0.0
     - cftime >=1.6.0
+    # lazy
+    - dask >=2024.1.0
+    - distributed >=2024.1.0
+    - zarr >=2.17.0,<3
+    - fsspec >=2024.1.0
+    # netcdf-lazy
+    - kerchunk >=0.2.6
+    - h5py >=3.8.0
+    # parquet
+    - pyarrow >=10.0.0
+    # parquet-lazy
+    - dask-geopandas >=0.5.0
 
 test:
   requires:
@@ -55,7 +73,10 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage(name, exact=True) }}
-        - cleopatra >=0.6.0
+        - cleopatra >=0.7.1
+        - mercantile >=1.2.0
+        - xyzservices >=2024.4.0
+        - Pillow >=9.0.0
     test:
       imports:
         - pyramids
@@ -70,6 +91,55 @@ outputs:
         - netcdf4 >=1.6.0
         - h5netcdf >=1.0.0
         - cftime >=1.6.0
+    test:
+      imports:
+        - pyramids
+
+  - name: {{ name }}-lazy
+    build:
+      noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage(name, exact=True) }}
+        - dask >=2024.1.0
+        - distributed >=2024.1.0
+        - zarr >=2.17.0,<3
+        - fsspec >=2024.1.0
+    test:
+      imports:
+        - pyramids
+
+  - name: {{ name }}-netcdf-lazy
+    build:
+      noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage(name ~ '-lazy', exact=True) }}
+        - kerchunk >=0.2.6
+        - h5py >=3.8.0
+    test:
+      imports:
+        - pyramids
+
+  - name: {{ name }}-parquet
+    build:
+      noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage(name, exact=True) }}
+        - pyarrow >=10.0.0
+    test:
+      imports:
+        - pyramids
+
+  - name: {{ name }}-parquet-lazy
+    build:
+      noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage(name ~ '-lazy', exact=True) }}
+        - {{ pin_subpackage(name ~ '-parquet', exact=True) }}
+        - dask-geopandas >=0.5.0
     test:
       imports:
         - pyramids
