@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.15.0" %}
+{% set version = "0.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: 56c107e82d11c208a87f610bd8ef97014d6820d621e321b70a715197f94aaa9a
+  sha256: 532e2a6e498c6054165aa016db6ef153375d28b4b55f6013872edd7a4d510c3f
 
 build:
   number: 0
@@ -19,7 +19,8 @@ requirements:
   host:
     - python {{ python_min }}
     - pip >=24.3.1
-    - setuptools
+    - setuptools >=80.0.0
+    - wheel
   run:
     - python >={{ python_min }}
     - geopandas >=1.0.0
@@ -30,9 +31,9 @@ requirements:
     - PyYAML >=6.0.0
     - Shapely >=2.0.0
     - scipy >=1.10.0
-    - gdal >=3.10.0
-    - libgdal-netcdf >=3.10.0
-    - libgdal-hdf4 >=3.10.0
+    - gdal >=3.10.0,<4
+    - libgdal-netcdf >=3.10.0,<4
+    - libgdal-hdf4 >=3.10.0,<4
 
   run_constrained:
     # viz
@@ -47,6 +48,7 @@ requirements:
     - distributed >=2024.1.0
     - zarr >=2.17.0,<3
     - fsspec >=2024.1.0
+    - flox >=0.9.0
     # netcdf-lazy
     - kerchunk >=0.2.6
     - h5py >=3.8.0
@@ -99,6 +101,7 @@ outputs:
         - distributed >=2024.1.0
         - zarr >=2.17.0,<3
         - fsspec >=2024.1.0
+        - flox >=0.9.0
     test:
       imports:
         - pyramids
