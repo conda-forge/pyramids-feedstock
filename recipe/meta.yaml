@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.15.0" %}
+{% set version = "0.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: 56c107e82d11c208a87f610bd8ef97014d6820d621e321b70a715197f94aaa9a
+  sha256: 532e2a6e498c6054165aa016db6ef153375d28b4b55f6013872edd7a4d510c3f
 
 build:
   number: 0
