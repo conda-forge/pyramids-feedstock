@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.18.0" %}
+{% set version = "0.19.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: ee2af9ccf866345e0ede382e7e521d17acaf75902803a0cdcdcf5036f136c765
+  sha256: 74c06e1cb641d89c5d7486de418ef7ad471af12b310fe4f7f6214d682cceef4f
 
 build:
   number: 0
@@ -34,24 +34,27 @@ requirements:
     - gdal >=3.10.0,<4
     - libgdal-netcdf >=3.10.0,<4
     - libgdal-hdf4 >=3.10.0,<4
+    # conda-forge's geopandas-base no longer pulls a vector-IO backend;
+    # pyogrio is required for GeoDataFrame.to_file / read_file on every env.
+    - pyogrio >=0.7
 
   run_constrained:
-    # viz
-    - cleopatra >=0.7.1
-    - mercantile >=1.2.0
-    - xyzservices >=2024.4.0
-    - Pillow >=9.0.0
+    # viz — `cleopatra-tiles` is the conda-forge equivalent of the PyPI
+    # `cleopatra[tiles]` extra (pulls cleopatra + mercantile + xyzservices + Pillow).
+    - cleopatra-tiles >=0.8.0
     # xarray
     - xarray >=2023.1.0
     # lazy
-    - dask >=2024.1.0
+    - dask-core >=2024.1.0
     - distributed >=2024.1.0
     - zarr >=2.17.0,<3
     - fsspec >=2024.1.0
     - flox >=0.9.0
-    # netcdf-lazy
+    # netcdf-lazy — h5py 3.16 moved to hdf5 2.x but libgdal-netcdf still
+    # links hdf5 1.14.x; pin both so the env always shares one hdf5 binary.
     - kerchunk >=0.2.6
-    - h5py >=3.8.0
+    - h5py >=3.8.0,<3.16
+    - hdf5 1.14.*
     # parquet
     - pyarrow >=10.0.0
     # parquet-lazy
@@ -72,10 +75,9 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage(name, exact=True) }}
-        - cleopatra >=0.7.1
-        - mercantile >=1.2.0
-        - xyzservices >=2024.4.0
-        - Pillow >=9.0.0
+        # conda-forge equivalent of the PyPI `cleopatra[tiles]` extra
+        # (cleopatra + mercantile + xyzservices + Pillow).
+        - cleopatra-tiles >=0.8.0
     test:
       imports:
         - pyramids
@@ -97,7 +99,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage(name, exact=True) }}
-        - dask >=2024.1.0
+        - dask-core >=2024.1.0
         - distributed >=2024.1.0
         - zarr >=2.17.0,<3
         - fsspec >=2024.1.0
@@ -113,7 +115,10 @@ outputs:
       run:
         - {{ pin_subpackage(name ~ '-lazy', exact=True) }}
         - kerchunk >=0.2.6
-        - h5py >=3.8.0
+        # h5py 3.16 dragged hdf5 2.x; libgdal-netcdf still links hdf5 1.14.x.
+        # Pin both to keep one hdf5 binary in the env (Windows DLL-shadow risk).
+        - h5py >=3.8.0,<3.16
+        - hdf5 1.14.*
     test:
       imports:
         - pyramids
