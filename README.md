@@ -38,6 +38,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--netcdf--lazy-green.svg)](https://anaconda.org/conda-forge/pyramids-netcdf-lazy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-netcdf-lazy.svg)](https://anaconda.org/conda-forge/pyramids-netcdf-lazy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-netcdf-lazy.svg)](https://anaconda.org/conda-forge/pyramids-netcdf-lazy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-netcdf-lazy.svg)](https://anaconda.org/conda-forge/pyramids-netcdf-lazy) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--parquet-green.svg)](https://anaconda.org/conda-forge/pyramids-parquet) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-parquet.svg)](https://anaconda.org/conda-forge/pyramids-parquet) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-parquet.svg)](https://anaconda.org/conda-forge/pyramids-parquet) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-parquet.svg)](https://anaconda.org/conda-forge/pyramids-parquet) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--parquet--lazy-green.svg)](https://anaconda.org/conda-forge/pyramids-parquet-lazy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-parquet-lazy.svg)](https://anaconda.org/conda-forge/pyramids-parquet-lazy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-parquet-lazy.svg)](https://anaconda.org/conda-forge/pyramids-parquet-lazy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-parquet-lazy.svg)](https://anaconda.org/conda-forge/pyramids-parquet-lazy) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--stac-green.svg)](https://anaconda.org/conda-forge/pyramids-stac) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-stac.svg)](https://anaconda.org/conda-forge/pyramids-stac) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-stac.svg)](https://anaconda.org/conda-forge/pyramids-stac) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-stac.svg)](https://anaconda.org/conda-forge/pyramids-stac) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--viz-green.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--xarray-green.svg)](https://anaconda.org/conda-forge/pyramids-xarray) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-xarray.svg)](https://anaconda.org/conda-forge/pyramids-xarray) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-xarray.svg)](https://anaconda.org/conda-forge/pyramids-xarray) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-xarray.svg)](https://anaconda.org/conda-forge/pyramids-xarray) |
 
@@ -51,16 +52,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pyramids, pyramids-lazy, pyramids-netcdf-lazy, pyramids-parquet, pyramids-parquet-lazy, pyramids-viz, pyramids-xarray` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pyramids, pyramids-lazy, pyramids-netcdf-lazy, pyramids-parquet, pyramids-parquet-lazy, pyramids-stac, pyramids-viz, pyramids-xarray` can be installed with `conda`:
 
 ```
-conda install pyramids pyramids-lazy pyramids-netcdf-lazy pyramids-parquet pyramids-parquet-lazy pyramids-viz pyramids-xarray
+conda install pyramids pyramids-lazy pyramids-netcdf-lazy pyramids-parquet pyramids-parquet-lazy pyramids-stac pyramids-viz pyramids-xarray
 ```
 
 or with `mamba`:
 
 ```
-mamba install pyramids pyramids-lazy pyramids-netcdf-lazy pyramids-parquet pyramids-parquet-lazy pyramids-viz pyramids-xarray
+mamba install pyramids pyramids-lazy pyramids-netcdf-lazy pyramids-parquet pyramids-parquet-lazy pyramids-stac pyramids-viz pyramids-xarray
 ```
 
 It is possible to list all of the versions of `pyramids` available on your platform with `conda`:
