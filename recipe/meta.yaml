@@ -34,6 +34,8 @@ requirements:
     - gdal >=3.10.0,<4
     - libgdal-netcdf >=3.10.0,<4
     - libgdal-hdf4 >=3.10.0,<4
+    # libgdal-grib provides the GRIB driver pyramids.grib.open_grib needs.
+    - libgdal-grib >=3.10.0,<4
     # conda-forge's geopandas-base no longer pulls a vector-IO backend;
     # pyogrio is required for GeoDataFrame.to_file / read_file on every env.
     - pyogrio >=0.7
@@ -59,6 +61,8 @@ requirements:
     - pyarrow >=10.0.0
     # parquet-lazy
     - dask-geopandas >=0.5.0
+    # stac — conda-forge equivalent of the PyPI `stac` extra.
+    - pystac-client >=0.8.0
 
 test:
   requires:
@@ -142,6 +146,18 @@ outputs:
         - {{ pin_subpackage(name ~ '-lazy', exact=True) }}
         - {{ pin_subpackage(name ~ '-parquet', exact=True) }}
         - dask-geopandas >=0.5.0
+    test:
+      imports:
+        - pyramids
+
+  - name: {{ name }}-stac
+    build:
+      noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage(name, exact=True) }}
+        # conda-forge equivalent of the PyPI `stac` extra (pystac-client).
+        - pystac-client >=0.8.0
     test:
       imports:
         - pyramids
