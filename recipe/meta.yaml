@@ -23,6 +23,7 @@ requirements:
     - wheel
   run:
     - python >={{ python_min }}
+    - cftime >=1.6.4
     - geopandas >=1.0.0
     - hpc >=0.1.5
     - numpy >=2.0.0
