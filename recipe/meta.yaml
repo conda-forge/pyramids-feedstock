@@ -72,6 +72,9 @@ test:
     - python {{ python_min }}
   imports:
     - pyramids
+  commands:
+    # verify the `pyramids` console entry point (pyramids.cli:main) is installed and runnable
+    - pyramids --help
 
 outputs:
   - name: {{ name }}
