@@ -50,12 +50,12 @@ requirements:
     # lazy
     - dask-core >=2024.1.0
     - distributed >=2024.1.0
-    - zarr >=2.17.0,<3
+    - zarr >=3
     - fsspec >=2024.1.0
     - flox >=0.9.0
     # netcdf-lazy — h5py 3.16 moved to hdf5 2.x but libgdal-netcdf still
     # links hdf5 1.14.x; pin both so the env always shares one hdf5 binary.
-    - kerchunk >=0.2.6
+    - kerchunk >=0.2.10
     - h5py >=3.8.0,<3.16
     - hdf5 1.14.*
     # parquet
@@ -111,7 +111,7 @@ outputs:
         - {{ pin_subpackage(name, exact=True) }}
         - dask-core >=2024.1.0
         - distributed >=2024.1.0
-        - zarr >=2.17.0,<3
+        - zarr >=3
         - fsspec >=2024.1.0
         - flox >=0.9.0
     test:
@@ -124,7 +124,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage(name ~ '-lazy', exact=True) }}
-        - kerchunk >=0.2.6
+        - kerchunk >=0.2.10
         # h5py 3.16 dragged hdf5 2.x; libgdal-netcdf still links hdf5 1.14.x.
         # Pin both to keep one hdf5 binary in the env (Windows DLL-shadow risk).
         - h5py >=3.8.0,<3.16
