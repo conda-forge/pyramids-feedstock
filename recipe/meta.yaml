@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.26.0" %}
+{% set version = "0.27.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: 11073f80841ba7f214bd8b0a57dfb10012de60fa4cd29443b4ed3e60e67b962a
+  sha256: 98939839cb2833d986e17e2eddf8fa864d4e82605408540c9826db5d2775e538
 
 build:
   number: 0
@@ -50,12 +50,12 @@ requirements:
     # lazy
     - dask-core >=2024.1.0
     - distributed >=2024.1.0
-    - zarr >=2.17.0,<3
+    - zarr >=3
     - fsspec >=2024.1.0
     - flox >=0.9.0
     # netcdf-lazy — h5py 3.16 moved to hdf5 2.x but libgdal-netcdf still
     # links hdf5 1.14.x; pin both so the env always shares one hdf5 binary.
-    - kerchunk >=0.2.6
+    - kerchunk >=0.2.10
     - h5py >=3.8.0,<3.16
     - hdf5 1.14.*
     # parquet
@@ -111,7 +111,7 @@ outputs:
         - {{ pin_subpackage(name, exact=True) }}
         - dask-core >=2024.1.0
         - distributed >=2024.1.0
-        - zarr >=2.17.0,<3
+        - zarr >=3
         - fsspec >=2024.1.0
         - flox >=0.9.0
     test:
@@ -124,7 +124,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage(name ~ '-lazy', exact=True) }}
-        - kerchunk >=0.2.6
+        - kerchunk >=0.2.10
         # h5py 3.16 dragged hdf5 2.x; libgdal-netcdf still links hdf5 1.14.x.
         # Pin both to keep one hdf5 binary in the env (Windows DLL-shadow risk).
         - h5py >=3.8.0,<3.16
