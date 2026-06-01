@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.28.0" %}
+{% set version = "0.29.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: eaebaed0779e83531b1a1cea73b76c98a191e353f9d081f4b4b4abfe44d3768c
+  sha256: b5227b69ac38a07c88b643f6ee2496958efa0e77f2e6bbec8d21a0034ed1489f
 
 build:
   number: 0
@@ -52,6 +52,7 @@ requirements:
     - distributed >=2024.1.0
     - zarr >=3
     - fsspec >=2024.1.0
+    - s3fs >=2024.1.0
     - flox >=0.9.0
     # netcdf-lazy — h5py 3.16 moved to hdf5 2.x but libgdal-netcdf still
     # links hdf5 1.14.x; pin both so the env always shares one hdf5 binary.
@@ -113,6 +114,7 @@ outputs:
         - distributed >=2024.1.0
         - zarr >=3
         - fsspec >=2024.1.0
+        - s3fs >=2024.1.0
         - flox >=0.9.0
     test:
       imports:
