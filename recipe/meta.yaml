@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.27.0" %}
+{% set version = "0.28.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: 98939839cb2833d986e17e2eddf8fa864d4e82605408540c9826db5d2775e538
+  sha256: eaebaed0779e83531b1a1cea73b76c98a191e353f9d081f4b4b4abfe44d3768c
 
 build:
   number: 0
@@ -44,7 +44,7 @@ requirements:
   run_constrained:
     # viz — `cleopatra-tiles` is the conda-forge equivalent of the PyPI
     # `cleopatra[tiles]` extra (pulls cleopatra + mercantile + xyzservices + Pillow).
-    - cleopatra-tiles >=0.8.0
+    - cleopatra-tiles >=0.12.0
     # xarray
     - xarray >=2023.1.0
     # lazy
@@ -87,7 +87,7 @@ outputs:
         - {{ pin_subpackage(name, exact=True) }}
         # conda-forge equivalent of the PyPI `cleopatra[tiles]` extra
         # (cleopatra + mercantile + xyzservices + Pillow).
-        - cleopatra-tiles >=0.8.0
+        - cleopatra-tiles >=0.12.0
     test:
       imports:
         - pyramids
