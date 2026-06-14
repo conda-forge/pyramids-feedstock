@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.32.0" %}
+{% set version = "0.33.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: 2776cf5de1d53ce68479dd17cd38f5e9762b7aaca5c0cc6769be31a3fbac200f
+  sha256: 419aa339135d18605b93757bf49664b4888d8e3f7b2f63f1e1770cb2bc4c819d
 
 build:
   number: 0
@@ -45,23 +45,22 @@ requirements:
     # viz — `cleopatra-tiles` is the conda-forge equivalent of the PyPI
     # `cleopatra[tiles]` extra (pulls cleopatra + mercantile + xyzservices + Pillow).
     - cleopatra-tiles >=0.17.0
-    # xarray
+    # xarray — peer interop dep (no longer a dedicated extra in pyproject 0.33.0)
     - xarray >=2023.1.0
-    # lazy
+    # lazy — now also bundles kerchunk + h5py for the NetCDF/HDF5 lazy path.
+    # h5py 3.16 moved to hdf5 2.x but libgdal-netcdf still links hdf5 1.14.x;
+    # pin both so the env always shares one hdf5 binary.
     - dask-core >=2024.1.0
     - distributed >=2024.1.0
     - zarr >=3
     - fsspec >=2024.1.0
     - s3fs >=2024.1.0
     - flox >=0.9.0
-    # netcdf-lazy — h5py 3.16 moved to hdf5 2.x but libgdal-netcdf still
-    # links hdf5 1.14.x; pin both so the env always shares one hdf5 binary.
     - kerchunk >=0.2.10
     - h5py >=3.8.0,<3.16
     - hdf5 1.14.*
-    # parquet
+    # parquet — now also bundles dask-geopandas (the former parquet-lazy extra).
     - pyarrow >=10.0.0
-    # parquet-lazy
     - dask-geopandas >=0.5.0
     # stac — conda-forge equivalent of the PyPI `stac` extra. The PyPI extra also
     # pins stac-asset>=0.4.7, which is not yet packaged on conda-forge; add it here
@@ -93,17 +92,6 @@ outputs:
       imports:
         - pyramids
 
-  - name: {{ name }}-xarray
-    build:
-      noarch: python
-    requirements:
-      run:
-        - {{ pin_subpackage(name, exact=True) }}
-        - xarray >=2023.1.0
-    test:
-      imports:
-        - pyramids
-
   - name: {{ name }}-lazy
     build:
       noarch: python
@@ -116,19 +104,10 @@ outputs:
         - fsspec >=2024.1.0
         - s3fs >=2024.1.0
         - flox >=0.9.0
-    test:
-      imports:
-        - pyramids
-
-  - name: {{ name }}-netcdf-lazy
-    build:
-      noarch: python
-    requirements:
-      run:
-        - {{ pin_subpackage(name ~ '-lazy', exact=True) }}
-        - kerchunk >=0.2.10
+        # kerchunk + h5py for the NetCDF/HDF5 lazy (Zarr-reference) path.
         # h5py 3.16 dragged hdf5 2.x; libgdal-netcdf still links hdf5 1.14.x.
         # Pin both to keep one hdf5 binary in the env (Windows DLL-shadow risk).
+        - kerchunk >=0.2.10
         - h5py >=3.8.0,<3.16
         - hdf5 1.14.*
     test:
@@ -140,19 +119,8 @@ outputs:
       noarch: python
     requirements:
       run:
-        - {{ pin_subpackage(name, exact=True) }}
-        - pyarrow >=10.0.0
-    test:
-      imports:
-        - pyramids
-
-  - name: {{ name }}-parquet-lazy
-    build:
-      noarch: python
-    requirements:
-      run:
         - {{ pin_subpackage(name ~ '-lazy', exact=True) }}
-        - {{ pin_subpackage(name ~ '-parquet', exact=True) }}
+        - pyarrow >=10.0.0
         - dask-geopandas >=0.5.0
     test:
       imports:
