@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.66.0" %}
+{% set version = "0.67.0" %}
 
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: 8c117c2654af5736e9850de86e2fdc6ec5e7da02460731ac7b5c635708ffd425
+  sha256: 00181f2543aaec7638beb018d3e28ce9d6e86b6b2825942868bc5f5c6c984717
 
 build:
   number: 0
@@ -65,7 +65,7 @@ requirements:
     # stac — conda-forge equivalent of the PyPI `stac` extra. The PyPI extra also
     # pins stac-asset>=0.4.7, which is not yet packaged on conda-forge; add it here
     # once it lands on the channel.
-    - pystac-client >=0.8.0
+    - pystac-client >=0.8.4
 
 test:
   requires:
@@ -133,7 +133,7 @@ outputs:
         - {{ pin_subpackage(name, exact=True) }}
         # conda-forge equivalent of the PyPI `stac` extra. stac-asset>=0.4.7 (also
         # part of the PyPI extra) is not yet on conda-forge; add it once available.
-        - pystac-client >=0.8.0
+        - pystac-client >=0.8.4
     test:
       imports:
         - pyramids
