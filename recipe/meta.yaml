@@ -65,7 +65,7 @@ requirements:
     # stac — conda-forge equivalent of the PyPI `stac` extra. The PyPI extra also
     # pins stac-asset>=0.4.7, which is not yet packaged on conda-forge; add it here
     # once it lands on the channel.
-    - pystac-client >=0.8.0
+    - pystac-client >=0.8.4
 
 test:
   requires:
@@ -133,7 +133,7 @@ outputs:
         - {{ pin_subpackage(name, exact=True) }}
         # conda-forge equivalent of the PyPI `stac` extra. stac-asset>=0.4.7 (also
         # part of the PyPI extra) is not yet on conda-forge; add it once available.
-        - pystac-client >=0.8.0
+        - pystac-client >=0.8.4
     test:
       imports:
         - pyramids
