@@ -38,6 +38,10 @@ requirements:
     - libgdal-hdf4 >=3.10.0,<4
     # libgdal-grib provides the GRIB driver pyramids.grib.open_grib needs.
     - libgdal-grib >=3.10.0,<4
+    # libgdal-jp2openjpeg ships the JP2OpenJPEG driver (pulls openjpeg) so
+    # GDAL can read JPEG2000-packed GRIB2 (WMO template 5.40 —
+    # NCEP/ECCC/ECMWF).
+    - libgdal-jp2openjpeg >=3.10.0,<4
     # conda-forge's geopandas-base no longer pulls a vector-IO backend;
     # pyogrio is required for GeoDataFrame.to_file / read_file on every env.
     - pyogrio >=0.7
