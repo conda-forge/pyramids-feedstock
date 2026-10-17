@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "pyramids" %}
-{% set version = "0.68.0" %}
+{% set version = "0.69.0" %}
 
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: a2c999ceaa16c037538dd0fa4ad94ee9b5ae7a627c4b9b01b0dfc2f965cf834f
+  sha256: 1a58a75a2a7a50fc133637cc0d5de4078c87dae29339d7261a02b4129ebcb93c
 
 build:
   number: 0
@@ -53,15 +53,17 @@ requirements:
     # xarray — peer interop dep (no longer a dedicated extra in pyproject 0.33.0)
     - xarray >=2023.1.0
     # lazy — now also bundles kerchunk + h5py for the NetCDF/HDF5 lazy path.
-    # h5py 3.16 moved to hdf5 2.x but libgdal-netcdf still links hdf5 1.14.x;
-    # pin both so the env always shares one hdf5 binary.
+    # h5py 3.16 added hdf5 2.x builds but still ships hdf5 1.14.6-linked ones;
+    # the hdf5 1.14.* pin below is the real ABI guard — it forces the 1.14.6
+    # build so the whole env, incl. libgdal-netcdf (hdf5 1.14.x), shares one
+    # HDF5 binary. The <3.17 cap just vets a future 3.17 before it floats in.
     - dask-core >=2024.1.0
     - distributed >=2024.1.0
     - zarr >=3
     - fsspec >=2024.1.0
     - s3fs >=2024.1.0
     - kerchunk >=0.2.10
-    - h5py >=3.8.0,<3.16
+    - h5py >=3.8.0,<3.17
     - hdf5 1.14.*
     # parquet — now also bundles dask-geopandas (the former parquet-lazy extra).
     - pyarrow >=10.0.0
@@ -108,10 +110,12 @@ outputs:
         - fsspec >=2024.1.0
         - s3fs >=2024.1.0
         # kerchunk + h5py for the NetCDF/HDF5 lazy (Zarr-reference) path.
-        # h5py 3.16 dragged hdf5 2.x; libgdal-netcdf still links hdf5 1.14.x.
-        # Pin both to keep one hdf5 binary in the env (Windows DLL-shadow risk).
+        # h5py 3.16 added hdf5 2.x builds but still ships hdf5 1.14.6-linked
+        # ones; the hdf5 1.14.* pin is the real ABI guard (libgdal-netcdf links
+        # hdf5 1.14.x), keeping one hdf5 binary in the env (Windows DLL-shadow
+        # risk). The <3.17 cap just vets a future 3.17 before it floats in.
         - kerchunk >=0.2.10
-        - h5py >=3.8.0,<3.16
+        - h5py >=3.8.0,<3.17
         - hdf5 1.14.*
     test:
       imports:
