@@ -53,10 +53,14 @@ requirements:
     # xarray — peer interop dep (no longer a dedicated extra in pyproject 0.33.0)
     - xarray >=2023.1.0
     # lazy — now also bundles kerchunk + h5py for the NetCDF/HDF5 lazy path.
-    # h5py 3.16 added hdf5 2.x builds but still ships hdf5 1.14.6-linked ones;
-    # the hdf5 1.14.* pin below is the real ABI guard — it forces the 1.14.6
-    # build so the whole env, incl. libgdal-netcdf (hdf5 1.14.x), shares one
-    # HDF5 binary. The <3.17 cap just vets a future 3.17 before it floats in.
+    # h5py must come from conda-forge: PyPI h5py wheels bundle their own HDF5
+    # and DLL-shadow on Windows once two HDF5 backends load in-process.
+    # hdf5 is held at 1.14.* NOT because libgdal-netcdf lacks hdf5 2.x builds
+    # (it ships both, as does h5py 3.16) but because of the shared AWS-SDK:
+    # GDAL (/vsis3/) and Arrow (S3 parquet) link one aws-sdk-cpp, and the
+    # hdf5-2 GDAL builds pin a different AWS-SDK patch than libarrow needs, so
+    # hdf5 2.x does not co-solve with the arrow/parquet stack yet — see
+    # serapeum-org/pyramids-core#1419. The <3.17 cap vets a future 3.17 first.
     - dask-core >=2024.1.0
     - distributed >=2024.1.0
     - zarr >=3
@@ -110,10 +114,10 @@ outputs:
         - fsspec >=2024.1.0
         - s3fs >=2024.1.0
         # kerchunk + h5py for the NetCDF/HDF5 lazy (Zarr-reference) path.
-        # h5py 3.16 added hdf5 2.x builds but still ships hdf5 1.14.6-linked
-        # ones; the hdf5 1.14.* pin is the real ABI guard (libgdal-netcdf links
-        # hdf5 1.14.x), keeping one hdf5 binary in the env (Windows DLL-shadow
-        # risk). The <3.17 cap just vets a future 3.17 before it floats in.
+        # h5py from conda-forge only (PyPI wheels bundle their own HDF5 and
+        # DLL-shadow on Windows). hdf5 stays on 1.14.* because the hdf5-2 GDAL
+        # builds pin a different AWS-SDK patch than libarrow needs, so hdf5 2.x
+        # does not co-solve with arrow/parquet — serapeum-org/pyramids-core#1419.
         - kerchunk >=0.2.10
         - h5py >=3.8.0,<3.17
         - hdf5 1.14.*
