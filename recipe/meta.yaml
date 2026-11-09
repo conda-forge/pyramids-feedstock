@@ -8,8 +8,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/serapeum-org/pyramids/archive/{{ version }}.tar.gz
-  sha256: ce6d053bd54785a294def683d18762cec822fe38de966890f97a6deb416308a0
+  url: https://github.com/serapeum-org/pyramids-core/archive/{{ version }}.tar.gz
+  sha256: 653aaa7e452ca5595e2ccdc9d25fc6813add82e48a7ec16ea2d7335be9fc6a78
 
 build:
   number: 0
@@ -151,16 +151,16 @@ outputs:
         - pyramids
 
 about:
-  home: https://github.com/serapeum-org/pyramids
+  home: https://github.com/serapeum-org/pyramids-core
   license: GPL-3.0-only
   license_family: GPL
   license_file: LICENSE.md
   summary: GIS utility package
   description: |
     GIS utility package.
-  dev_url: https://github.com/serapeum-org/pyramids
-  doc_url: https://serapeum-org.github.io/pyramids
-  doc_source_url: https://github.com/serapeum-org/pyramids/main/README.md
+  dev_url: https://github.com/serapeum-org/pyramids-core
+  doc_url: https://serapeum-org.github.io/pyramids-core
+  doc_source_url: https://github.com/serapeum-org/pyramids-core/blob/main/README.md
 
 extra:
   recipe-maintainers:
