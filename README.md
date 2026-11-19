@@ -36,7 +36,6 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids-green.svg)](https://anaconda.org/conda-forge/pyramids) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids.svg)](https://anaconda.org/conda-forge/pyramids) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids.svg)](https://anaconda.org/conda-forge/pyramids) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids.svg)](https://anaconda.org/conda-forge/pyramids) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--lazy-green.svg)](https://anaconda.org/conda-forge/pyramids-lazy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-lazy.svg)](https://anaconda.org/conda-forge/pyramids-lazy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-lazy.svg)](https://anaconda.org/conda-forge/pyramids-lazy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-lazy.svg)](https://anaconda.org/conda-forge/pyramids-lazy) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--parquet-green.svg)](https://anaconda.org/conda-forge/pyramids-parquet) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-parquet.svg)](https://anaconda.org/conda-forge/pyramids-parquet) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-parquet.svg)](https://anaconda.org/conda-forge/pyramids-parquet) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-parquet.svg)](https://anaconda.org/conda-forge/pyramids-parquet) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--stac-green.svg)](https://anaconda.org/conda-forge/pyramids-stac) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-stac.svg)](https://anaconda.org/conda-forge/pyramids-stac) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-stac.svg)](https://anaconda.org/conda-forge/pyramids-stac) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-stac.svg)](https://anaconda.org/conda-forge/pyramids-stac) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pyramids--viz-green.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyramids-viz.svg)](https://anaconda.org/conda-forge/pyramids-viz) |
@@ -58,7 +57,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install pyramids pyramids-lazy pyramids-parquet pyramids-stac pyramids-viz
+conda install pyramids pyramids-parquet pyramids-stac pyramids-viz
 ```
 
 </details>
@@ -67,7 +66,7 @@ conda install pyramids pyramids-lazy pyramids-parquet pyramids-stac pyramids-viz
 <summary>With mamba</summary>
 
 ```
-mamba install pyramids pyramids-lazy pyramids-parquet pyramids-stac pyramids-viz
+mamba install pyramids pyramids-parquet pyramids-stac pyramids-viz
 ```
 
 </details>
@@ -77,9 +76,9 @@ mamba install pyramids pyramids-lazy pyramids-parquet pyramids-stac pyramids-viz
 
 ```
 # for adding to your local project
-pixi add pyramids pyramids-lazy pyramids-parquet pyramids-stac pyramids-viz
+pixi add pyramids pyramids-parquet pyramids-stac pyramids-viz
 # for installing globally
-pixi global install pyramids pyramids-lazy pyramids-parquet pyramids-stac pyramids-viz
+pixi global install pyramids pyramids-parquet pyramids-stac pyramids-viz
 ```
 
 </details>
